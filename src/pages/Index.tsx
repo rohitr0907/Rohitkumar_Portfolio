@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -93,7 +94,7 @@ const Index = () => {
             right: "-10%", 
             width: "80%", 
             height: "70%", 
-            background: "linear-gradient(to bottom, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1))", 
+            background: "linear-gradient(to bottom, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2))", 
             borderRadius: "9999px", 
             filter: "blur(64px)",
             opacity: 0.8,
@@ -105,7 +106,7 @@ const Index = () => {
             left: "-10%", 
             width: "60%", 
             height: "60%", 
-            background: "linear-gradient(to top right, rgba(45, 212, 191, 0.1), rgba(59, 130, 246, 0.1))", 
+            background: "linear-gradient(to top right, rgba(45, 212, 191, 0.2), rgba(59, 130, 246, 0.2))", 
             borderRadius: "9999px", 
             filter: "blur(64px)",
             opacity: 0.7,
@@ -118,7 +119,7 @@ const Index = () => {
             left: "40%", 
             width: "25%", 
             height: "25%", 
-            background: "linear-gradient(to bottom right, rgba(244, 114, 182, 0.1), rgba(var(--accent), 0.1))", 
+            background: "linear-gradient(to bottom right, rgba(244, 114, 182, 0.2), rgba(168, 85, 247, 0.2))", 
             borderRadius: "9999px", 
             filter: "blur(64px)",
             opacity: 0.6,
@@ -156,7 +157,9 @@ const Index = () => {
                     fontSize: "1.5rem", 
                     fontWeight: "bold", 
                     letterSpacing: "-0.05em",
-                    background: "linear-gradient(to right, var(--primary), var(--accent))",
+                    background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                    backgroundSize: "200% auto",
+                    animation: "gradient-x 3s ease-in-out infinite",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent"
                   }}
@@ -184,7 +187,7 @@ const Index = () => {
                         left: 0, 
                         height: "2px", 
                         width: "100%",
-                        background: "var(--primary)",
+                        background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
                         transition: "all 0.3s"
                       }}></span>
                     )}
@@ -242,14 +245,21 @@ const Index = () => {
         >
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem", paddingTop: "6rem", paddingBottom: "6rem" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "64rem" }}>
-              <div style={{ animation: "fade-in 0.5s ease-out forwards", animationDelay: "0.1s" }}>
-                <Badge variant="outline" style={{ padding: "0.25rem 1rem", marginBottom: "0.5rem" }}>Frontend Developer</Badge>
+              <div style={{ animation: "fade-in-up 0.7s ease-out forwards", animationDelay: "0.1s", opacity: 0 }}>
+                <Badge variant="outline" style={{ 
+                  padding: "0.25rem 1rem", 
+                  marginBottom: "0.5rem",
+                  borderColor: "rgba(59, 130, 246, 0.3)",
+                  boxShadow: "0 0 10px rgba(59, 130, 246, 0.2)" 
+                }}>Frontend Developer</Badge>
                 <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: "bold", letterSpacing: "-0.05em", lineHeight: 1.1 }}>
                   <span style={{ display: "block" }}>Hi, I'm Your Name</span>
                   <span style={{ 
                     display: "block", 
                     marginTop: "0.25rem", 
-                    background: "linear-gradient(to right, var(--primary), var(--accent))",
+                    background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                    backgroundSize: "200% auto",
+                    animation: "gradient-x 3s ease-in-out infinite",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent"
                   }}>
@@ -262,8 +272,9 @@ const Index = () => {
                 fontSize: "clamp(1.25rem, 2vw, 1.5rem)", 
                 color: "var(--muted-foreground)", 
                 maxWidth: "48rem",
-                animation: "fade-in 0.5s ease-out forwards",
-                animationDelay: "0.3s"
+                animation: "fade-in-up 0.7s ease-out forwards",
+                animationDelay: "0.3s",
+                opacity: 0
               }}>
                 I specialize in creating exceptional digital experiences. 
                 Currently focused on building accessible, human-centered products.
@@ -274,13 +285,28 @@ const Index = () => {
                 flexDirection: "column", 
                 gap: "1rem", 
                 marginTop: "1rem", 
-                animation: "fade-in 0.5s ease-out forwards",
-                animationDelay: "0.5s"
+                animation: "fade-in-up 0.7s ease-out forwards",
+                animationDelay: "0.5s",
+                opacity: 0
               }}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
                   <Button 
                     size="lg" 
                     onClick={() => scrollToSection('projects')}
+                    className="shine-effect"
+                    style={{
+                      background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                      transition: "all 0.3s ease",
+                      transform: "translateY(0)",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = "translateY(-3px)";
+                      e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(59, 130, 246, 0.5)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "";
+                    }}
                   >
                     View My Projects
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -290,6 +316,19 @@ const Index = () => {
                     variant="outline" 
                     size="lg"
                     onClick={() => scrollToSection('contact')}
+                    style={{
+                      borderColor: "rgba(59, 130, 246, 0.3)",
+                      transition: "all 0.3s ease",
+                      transform: "translateY(0)",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = "translateY(-3px)";
+                      e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                    }}
                   >
                     Get In Touch
                   </Button>
@@ -314,22 +353,51 @@ const Index = () => {
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem" }}>
               <div style={{ position: "relative" }}>
-                <div style={{ aspectRatio: "1/1", borderRadius: "1rem", overflow: "hidden", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom right, rgba(var(--primary), 0.2), rgba(var(--accent), 0.2))", mixBlendMode: "multiply" }}></div>
+                <div style={{ 
+                  aspectRatio: "1/1", 
+                  borderRadius: "1rem", 
+                  overflow: "hidden", 
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  transform: "rotate(-3deg)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "rotate(0deg) scale(1.02)";
+                  e.currentTarget.style.boxShadow = "0 25px 50px -8px rgba(59, 130, 246, 0.4)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "rotate(-3deg)";
+                  e.currentTarget.style.boxShadow = "0 25px 50px -12px rgba(0, 0, 0, 0.25)";
+                }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))", mixBlendMode: "multiply" }}></div>
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom right, var(--background), transparent)", opacity: 0.2 }}></div>
                   <div style={{ width: "100%", height: "100%", background: "rgb(229, 231, 235)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <span style={{ color: "rgb(156, 163, 175)", fontSize: "1.125rem" }}>Your Photo Here</span>
                   </div>
                 </div>
                 
-                <div style={{ position: "absolute", bottom: "-1.5rem", left: "-1.5rem", width: "6rem", height: "6rem", background: "rgba(var(--accent), 0.1)", borderRadius: "9999px", filter: "blur(24px)" }}></div>
-                <div style={{ position: "absolute", top: "-1.5rem", right: "-1.5rem", width: "8rem", height: "8rem", background: "rgba(var(--primary), 0.1)", borderRadius: "9999px", filter: "blur(24px)" }}></div>
+                <div style={{ position: "absolute", bottom: "-1.5rem", left: "-1.5rem", width: "6rem", height: "6rem", background: "rgba(139, 92, 246, 0.3)", borderRadius: "9999px", filter: "blur(24px)" }}></div>
+                <div style={{ position: "absolute", top: "-1.5rem", right: "-1.5rem", width: "8rem", height: "8rem", background: "rgba(59, 130, 246, 0.3)", borderRadius: "9999px", filter: "blur(24px)" }}></div>
               </div>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 <div>
-                  <Badge style={{ marginBottom: "0.75rem" }}>About Me</Badge>
-                  <h2 style={{ fontSize: "clamp(1.875rem, 3vw, 2.25rem)", fontWeight: "bold", letterSpacing: "-0.025em" }}>
+                  <Badge style={{ 
+                    marginBottom: "0.75rem",
+                    background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                    color: "white",
+                    animation: "pulse 3s infinite"
+                  }}>About Me</Badge>
+                  <h2 style={{ 
+                    fontSize: "clamp(1.875rem, 3vw, 2.25rem)",
+                    fontWeight: "bold", 
+                    letterSpacing: "-0.025em", 
+                    background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                    backgroundSize: "200% auto",
+                    animation: "gradient-x 3s ease-in-out infinite",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent"
+                  }}>
                     Passionate about creating meaningful digital experiences
                   </h2>
                 </div>
@@ -353,7 +421,21 @@ const Index = () => {
                 <div style={{ display: "flex", gap: "1rem", paddingTop: "1rem" }}>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline" size="icon" asChild>
+                      <Button variant="outline" size="icon" asChild
+                        style={{ 
+                          transition: "all 0.3s ease",
+                          transform: "translateY(0)",
+                          borderColor: "rgba(59, 130, 246, 0.3)" 
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.transform = "translateY(-3px) rotate(8deg)";
+                          e.currentTarget.style.background = "rgba(59, 130, 246, 0.1)";
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
+                          e.currentTarget.style.background = "";
+                        }}
+                      >
                         <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                           <Github className="h-5 w-5" />
                         </a>
@@ -364,7 +446,21 @@ const Index = () => {
                   
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline" size="icon" asChild>
+                      <Button variant="outline" size="icon" asChild
+                        style={{ 
+                          transition: "all 0.3s ease",
+                          transform: "translateY(0)",
+                          borderColor: "rgba(59, 130, 246, 0.3)" 
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.transform = "translateY(-3px) rotate(-8deg)";
+                          e.currentTarget.style.background = "rgba(59, 130, 246, 0.1)";
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
+                          e.currentTarget.style.background = "";
+                        }}
+                      >
                         <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                           <Linkedin className="h-5 w-5" />
                         </a>
@@ -375,7 +471,23 @@ const Index = () => {
                   
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline">
+                      <Button variant="outline"
+                        style={{
+                          borderColor: "rgba(59, 130, 246, 0.3)",
+                          transition: "all 0.3s ease",
+                          transform: "translateY(0)",
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.transform = "translateY(-3px)";
+                          e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                          e.currentTarget.style.background = "rgba(59, 130, 246, 0.05)";
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                          e.currentTarget.style.background = "";
+                        }}
+                      >
                         <Download className="h-4 w-4 mr-2" />
                         Download Resume
                       </Button>
@@ -388,32 +500,63 @@ const Index = () => {
           </div>
         </section>
 
-        <section style={{ padding: "6rem 0", background: "var(--secondary)/0.3" }}>
+        <section style={{ padding: "6rem 0", background: "var(--secondary)/0.05" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-              <Badge style={{ marginBottom: "0.75rem" }}>What I Do</Badge>
-              <h2 style={{ fontSize: "clamp(1.875rem, 3vw, 2.25rem)", fontWeight: "bold", letterSpacing: "-0.025em", marginBottom: "1rem" }}>My Expertise</h2>
+              <Badge style={{ 
+                marginBottom: "0.75rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                color: "white" 
+              }}>What I Do</Badge>
+              <h2 style={{ 
+                fontSize: "clamp(1.875rem, 3vw, 2.25rem)", 
+                fontWeight: "bold", 
+                letterSpacing: "-0.025em", 
+                marginBottom: "1rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                backgroundSize: "200% auto",
+                animation: "gradient-x 3s ease-in-out infinite",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>My Expertise</h2>
               <p style={{ fontSize: "1.125rem", color: "var(--muted-foreground)", maxWidth: "32rem", margin: "0 auto" }}>
                 I specialize in building modern web applications with a focus on performance, accessibility, and user experience.
               </p>
             </div>
             
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginTop: "4rem" }}>
-              <Card>
+              <Card className="shine-effect" style={{ 
+                transition: "all 0.3s ease",
+                transform: "translateY(0)",
+                border: "1px solid rgba(59, 130, 246, 0.1)",
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(8px)"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-10px)";
+                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04)";
+                e.currentTarget.style.border = "1px solid rgba(59, 130, 246, 0.3)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+                e.currentTarget.style.border = "1px solid rgba(59, 130, 246, 0.1)";
+              }}>
                 <CardHeader>
                   <div style={{ 
-                    background: "rgba(var(--primary), 0.1)", 
+                    background: "linear-gradient(to right, #3b82f6, #8b5cf6)", 
                     width: "3rem", 
                     height: "3rem", 
                     borderRadius: "9999px", 
                     display: "flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
-                    marginBottom: "1rem" 
+                    marginBottom: "1rem",
+                    boxShadow: "0 10px 15px -3px rgba(59, 130, 246, 0.3)"
                   }}>
-                    <Code className="h-6 w-6 text-primary" />
+                    <Code className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>Frontend Development</CardTitle>
+                  <CardTitle style={{ color: "#3b82f6" }}>Frontend Development</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p style={{ color: "var(--muted-foreground)" }}>
@@ -423,21 +566,38 @@ const Index = () => {
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="shine-effect" style={{ 
+                transition: "all 0.3s ease",
+                transform: "translateY(0)",
+                border: "1px solid rgba(139, 92, 246, 0.1)",
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(8px)"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-10px)";
+                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(139, 92, 246, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.04)";
+                e.currentTarget.style.border = "1px solid rgba(139, 92, 246, 0.3)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+                e.currentTarget.style.border = "1px solid rgba(139, 92, 246, 0.1)";
+              }}>
                 <CardHeader>
                   <div style={{ 
-                    background: "rgba(var(--accent), 0.1)", 
+                    background: "linear-gradient(to right, #8b5cf6, #ec4899)", 
                     width: "3rem", 
                     height: "3rem", 
                     borderRadius: "9999px", 
                     display: "flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
-                    marginBottom: "1rem" 
+                    marginBottom: "1rem",
+                    boxShadow: "0 10px 15px -3px rgba(139, 92, 246, 0.3)"
                   }}>
-                    <Palette className="h-6 w-6 text-accent" />
+                    <Palette className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>UI/UX Design</CardTitle>
+                  <CardTitle style={{ color: "#8b5cf6" }}>UI/UX Design</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p style={{ color: "var(--muted-foreground)" }}>
@@ -447,21 +607,38 @@ const Index = () => {
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="shine-effect" style={{ 
+                transition: "all 0.3s ease",
+                transform: "translateY(0)",
+                border: "1px solid rgba(236, 72, 153, 0.1)",
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(8px)"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-10px)";
+                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(236, 72, 153, 0.1), 0 10px 10px -5px rgba(236, 72, 153, 0.04)";
+                e.currentTarget.style.border = "1px solid rgba(236, 72, 153, 0.3)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "";
+                e.currentTarget.style.border = "1px solid rgba(236, 72, 153, 0.1)";
+              }}>
                 <CardHeader>
                   <div style={{ 
-                    background: "rgba(59, 130, 246, 0.1)", 
+                    background: "linear-gradient(to right, #ec4899, #ef4444)", 
                     width: "3rem", 
                     height: "3rem", 
                     borderRadius: "9999px", 
                     display: "flex", 
                     alignItems: "center", 
                     justifyContent: "center", 
-                    marginBottom: "1rem" 
+                    marginBottom: "1rem",
+                    boxShadow: "0 10px 15px -3px rgba(236, 72, 153, 0.3)"
                   }}>
-                    <Database className="h-6 w-6 text-blue-500" />
+                    <Database className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>API Integration</CardTitle>
+                  <CardTitle style={{ color: "#ec4899" }}>API Integration</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p style={{ color: "var(--muted-foreground)" }}>
@@ -477,8 +654,22 @@ const Index = () => {
         <section id="projects" style={{ padding: "6rem 0" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
-              <Badge style={{ marginBottom: "0.75rem" }}>My Work</Badge>
-              <h2 style={{ fontSize: "clamp(1.875rem, 3vw, 2.25rem)", fontWeight: "bold", letterSpacing: "-0.025em", marginBottom: "1rem" }}>Featured Projects</h2>
+              <Badge style={{ 
+                marginBottom: "0.75rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                color: "white" 
+              }}>My Work</Badge>
+              <h2 style={{ 
+                fontSize: "clamp(1.875rem, 3vw, 2.25rem)", 
+                fontWeight: "bold", 
+                letterSpacing: "-0.025em", 
+                marginBottom: "1rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                backgroundSize: "200% auto",
+                animation: "gradient-x 3s ease-in-out infinite",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>Featured Projects</h2>
               <p style={{ fontSize: "1.125rem", color: "var(--muted-foreground)" }}>
                 Here's a selection of my recent projects that showcase my technical abilities and creative problem-solving.
               </p>
@@ -489,15 +680,48 @@ const Index = () => {
                 {[1, 2, 3].map((project) => (
                   <CarouselItem key={project} className="md:basis-1/2 lg:basis-1/2">
                     <div style={{ padding: "0.25rem" }}>
-                      <Card>
-                        <div style={{ aspectRatio: "16/9", background: "rgb(229, 231, 235)", position: "relative" }}>
+                      <Card style={{ 
+                        overflow: "hidden", 
+                        border: "1px solid rgba(59, 130, 246, 0.1)",
+                        background: "rgba(255, 255, 255, 0.8)",
+                        backdropFilter: "blur(8px)",
+                        transition: "all 0.3s ease"
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04)";
+                        e.currentTarget.style.border = "1px solid rgba(59, 130, 246, 0.3)";
+                        e.currentTarget.style.transform = "translateY(-10px)";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.boxShadow = "";
+                        e.currentTarget.style.border = "1px solid rgba(59, 130, 246, 0.1)";
+                        e.currentTarget.style.transform = "translateY(0)";
+                      }}>
+                        <div style={{ 
+                          aspectRatio: "16/9", 
+                          background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)",
+                          position: "relative",
+                          overflow: "hidden"
+                        }}>
+                          <div style={{ 
+                            position: "absolute", 
+                            inset: 0, 
+                            background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)",
+                            backgroundSize: "200% 200%",
+                            animation: "gradient-y 5s ease infinite",
+                            opacity: 0.7
+                          }}></div>
                           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            <span style={{ color: "rgb(156, 163, 175)" }}>Project Image {project}</span>
+                            <span style={{ color: "white", fontSize: "1.125rem", fontWeight: "600" }}>Project {project}</span>
                           </div>
                         </div>
                         
                         <CardHeader>
-                          <CardTitle>Project Title {project}</CardTitle>
+                          <CardTitle style={{ 
+                            background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent"
+                          }}>Project Title {project}</CardTitle>
                           <CardDescription>
                             A brief description of the project, what technologies were used, and what problems it solves.
                           </CardDescription>
@@ -505,19 +729,41 @@ const Index = () => {
                         
                         <CardContent>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
-                            <Badge variant="secondary">React</Badge>
-                            <Badge variant="secondary">TypeScript</Badge>
-                            <Badge variant="secondary">Tailwind CSS</Badge>
+                            <Badge variant="secondary" style={{ background: "rgba(59, 130, 246, 0.1)", color: "#3b82f6", borderColor: "rgba(59, 130, 246, 0.3)" }}>React</Badge>
+                            <Badge variant="secondary" style={{ background: "rgba(139, 92, 246, 0.1)", color: "#8b5cf6", borderColor: "rgba(139, 92, 246, 0.3)" }}>TypeScript</Badge>
+                            <Badge variant="secondary" style={{ background: "rgba(236, 72, 153, 0.1)", color: "#ec4899", borderColor: "rgba(236, 72, 153, 0.3)" }}>Tailwind CSS</Badge>
                           </div>
                         </CardContent>
                         
                         <CardFooter>
                           <div style={{ display: "flex", gap: "0.75rem" }}>
-                            <Button size="sm" variant="outline">
+                            <Button size="sm" variant="outline" style={{ 
+                              borderColor: "rgba(59, 130, 246, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.background = "rgba(59, 130, 246, 0.1)";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.background = "";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                            }}>
                               <ExternalLink className="h-4 w-4 mr-2" />
                               Live Demo
                             </Button>
-                            <Button size="sm" variant="outline">
+                            <Button size="sm" variant="outline" style={{ 
+                              borderColor: "rgba(59, 130, 246, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.background = "rgba(59, 130, 246, 0.1)";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.background = "";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                            }}>
                               <Github className="h-4 w-4 mr-2" />
                               Code
                             </Button>
@@ -529,13 +775,37 @@ const Index = () => {
                 ))}
               </CarouselContent>
               <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-                <CarouselPrevious style={{ position: "static", transform: "none", margin: "0 0.5rem" }} />
-                <CarouselNext style={{ position: "static", transform: "none", margin: "0 0.5rem" }} />
+                <CarouselPrevious style={{ 
+                  position: "static", 
+                  transform: "none", 
+                  margin: "0 0.5rem",
+                  borderColor: "rgba(59, 130, 246, 0.3)" 
+                }} />
+                <CarouselNext style={{ 
+                  position: "static", 
+                  transform: "none", 
+                  margin: "0 0.5rem",
+                  borderColor: "rgba(59, 130, 246, 0.3)" 
+                }} />
               </div>
             </Carousel>
             
             <div style={{ textAlign: "center", marginTop: "4rem" }}>
-              <Button variant="outline">
+              <Button variant="outline" style={{ 
+                borderColor: "rgba(59, 130, 246, 0.3)",
+                transition: "all 0.3s ease",
+                position: "relative",
+                overflow: "hidden"
+              }}
+              className="shine-effect"
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                e.currentTarget.style.background = "rgba(59, 130, 246, 0.05)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                e.currentTarget.style.background = "";
+              }}>
                 View All Projects
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -543,18 +813,35 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="skills" style={{ padding: "6rem 0", background: "var(--secondary)/0.3" }}>
+        <section id="skills" style={{ padding: "6rem 0", background: "var(--secondary)/0.05" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
-              <Badge style={{ marginBottom: "0.75rem" }}>My Toolkit</Badge>
-              <h2 style={{ fontSize: "clamp(1.875rem, 3vw, 2.25rem)", fontWeight: "bold", letterSpacing: "-0.025em", marginBottom: "1rem" }}>Skills & Technologies</h2>
+              <Badge style={{ 
+                marginBottom: "0.75rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                color: "white" 
+              }}>My Toolkit</Badge>
+              <h2 style={{ 
+                fontSize: "clamp(1.875rem, 3vw, 2.25rem)", 
+                fontWeight: "bold", 
+                letterSpacing: "-0.025em", 
+                marginBottom: "1rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                backgroundSize: "200% auto",
+                animation: "gradient-x 3s ease-in-out infinite",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>Skills & Technologies</h2>
               <p style={{ fontSize: "1.125rem", color: "var(--muted-foreground)" }}>
                 Here's a look at the technologies and tools I work with to bring ideas to life.
               </p>
             </div>
             
             <Tabs defaultValue="frontend">
-              <TabsList className="grid grid-cols-4 mb-8">
+              <TabsList className="grid grid-cols-4 mb-8" style={{ 
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(8px)"
+              }}>
                 <TabsTrigger value="frontend">Frontend</TabsTrigger>
                 <TabsTrigger value="backend">Backend</TabsTrigger>
                 <TabsTrigger value="design">Design</TabsTrigger>
@@ -562,14 +849,20 @@ const Index = () => {
               </TabsList>
               
               <TabsContent value="frontend">
-                <Card>
+                <Card style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)"
+                }}>
                   <CardContent className="pt-6 space-y-6">
                     <div>
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
                         <span style={{ fontWeight: 500 }}>React</span>
                         <span>{skillProgress.react}%</span>
                       </div>
-                      <Progress value={skillProgress.react} className="h-2" />
+                      <Progress value={skillProgress.react} className="h-2" style={{ 
+                        background: "rgba(59, 130, 246, 0.2)"
+                      }} />
                     </div>
                     
                     <div>
@@ -577,7 +870,9 @@ const Index = () => {
                         <span style={{ fontWeight: 500 }}>JavaScript</span>
                         <span>{skillProgress.javascript}%</span>
                       </div>
-                      <Progress value={skillProgress.javascript} className="h-2" />
+                      <Progress value={skillProgress.javascript} className="h-2" style={{ 
+                        background: "rgba(139, 92, 246, 0.2)"
+                      }} />
                     </div>
                     
                     <div>
@@ -585,7 +880,9 @@ const Index = () => {
                         <span style={{ fontWeight: 500 }}>TypeScript</span>
                         <span>{skillProgress.typescript}%</span>
                       </div>
-                      <Progress value={skillProgress.typescript} className="h-2" />
+                      <Progress value={skillProgress.typescript} className="h-2" style={{ 
+                        background: "rgba(236, 72, 153, 0.2)"
+                      }} />
                     </div>
                     
                     <div>
@@ -593,24 +890,52 @@ const Index = () => {
                         <span style={{ fontWeight: 500 }}>HTML & CSS</span>
                         <span>{skillProgress.html}%</span>
                       </div>
-                      <Progress value={skillProgress.html} className="h-2" />
+                      <Progress value={skillProgress.html} className="h-2" style={{ 
+                        background: "rgba(249, 115, 22, 0.2)"
+                      }} />
                     </div>
                   </CardContent>
                 </Card>
               </TabsContent>
               
               <TabsContent value="backend">
-                <Card>
+                <Card style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)"
+                }}>
                   <CardContent className="pt-6">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "1rem" }}>
                       {["Node.js", "Express", "MongoDB", "SQL", "Firebase", "REST APIs"].map((tool) => (
                         <HoverCard key={tool}>
                           <HoverCardTrigger asChild>
-                            <Button variant="outline" style={{ width: "100%", height: "100%", justifyContent: "center" }}>
+                            <Button variant="outline" style={{ 
+                              width: "100%", 
+                              height: "100%", 
+                              justifyContent: "center",
+                              borderColor: "rgba(59, 130, 246, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.transform = "translateY(-3px)";
+                              e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(59, 130, 246, 0.1)";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
+                              e.currentTarget.style.background = "linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1))";
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                              e.currentTarget.style.boxShadow = "";
+                              e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                              e.currentTarget.style.background = "";
+                            }}>
                               {tool}
                             </Button>
                           </HoverCardTrigger>
-                          <HoverCardContent className="w-80">
+                          <HoverCardContent className="w-80" style={{ 
+                            border: "1px solid rgba(59, 130, 246, 0.1)",
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(8px)"
+                          }}>
                             <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}>
                               <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
                                 <h4 style={{ fontSize: "0.875rem", fontWeight: 600 }}>{tool}</h4>
@@ -628,17 +953,43 @@ const Index = () => {
               </TabsContent>
               
               <TabsContent value="design">
-                <Card>
+                <Card style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)"
+                }}>
                   <CardContent className="pt-6">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "1rem" }}>
                       {["Figma", "Adobe XD", "UI Design", "UX Research", "Wireframing", "Prototyping"].map((tool) => (
                         <HoverCard key={tool}>
                           <HoverCardTrigger asChild>
-                            <Button variant="outline" style={{ width: "100%", height: "100%", justifyContent: "center" }}>
+                            <Button variant="outline" style={{ 
+                              width: "100%", 
+                              height: "100%", 
+                              justifyContent: "center",
+                              borderColor: "rgba(139, 92, 246, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.transform = "translateY(-3px)";
+                              e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(139, 92, 246, 0.1)";
+                              e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.5)";
+                              e.currentTarget.style.background = "linear-gradient(to right, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1))";
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                              e.currentTarget.style.boxShadow = "";
+                              e.currentTarget.style.borderColor = "rgba(139, 92, 246, 0.3)";
+                              e.currentTarget.style.background = "";
+                            }}>
                               {tool}
                             </Button>
                           </HoverCardTrigger>
-                          <HoverCardContent className="w-80">
+                          <HoverCardContent className="w-80" style={{ 
+                            border: "1px solid rgba(139, 92, 246, 0.1)",
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(8px)"
+                          }}>
                             <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}>
                               <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
                                 <h4 style={{ fontSize: "0.875rem", fontWeight: 600 }}>{tool}</h4>
@@ -656,17 +1007,43 @@ const Index = () => {
               </TabsContent>
               
               <TabsContent value="tools">
-                <Card>
+                <Card style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)"
+                }}>
                   <CardContent className="pt-6">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "1rem" }}>
                       {["Git", "Webpack", "Jest", "GitHub Actions", "VS Code", "Docker"].map((tool) => (
                         <HoverCard key={tool}>
                           <HoverCardTrigger asChild>
-                            <Button variant="outline" style={{ width: "100%", height: "100%", justifyContent: "center" }}>
+                            <Button variant="outline" style={{ 
+                              width: "100%", 
+                              height: "100%", 
+                              justifyContent: "center",
+                              borderColor: "rgba(236, 72, 153, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                              e.currentTarget.style.transform = "translateY(-3px)";
+                              e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(236, 72, 153, 0.1)";
+                              e.currentTarget.style.borderColor = "rgba(236, 72, 153, 0.5)";
+                              e.currentTarget.style.background = "linear-gradient(to right, rgba(236, 72, 153, 0.1), rgba(249, 115, 22, 0.1))";
+                            }}
+                            onMouseOut={(e) => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                              e.currentTarget.style.boxShadow = "";
+                              e.currentTarget.style.borderColor = "rgba(236, 72, 153, 0.3)";
+                              e.currentTarget.style.background = "";
+                            }}>
                               {tool}
                             </Button>
                           </HoverCardTrigger>
-                          <HoverCardContent className="w-80">
+                          <HoverCardContent className="w-80" style={{ 
+                            border: "1px solid rgba(236, 72, 153, 0.1)",
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(8px)"
+                          }}>
                             <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}>
                               <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
                                 <h4 style={{ fontSize: "0.875rem", fontWeight: 600 }}>{tool}</h4>
@@ -689,8 +1066,22 @@ const Index = () => {
         <section id="contact" style={{ padding: "6rem 0" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
-              <Badge style={{ marginBottom: "0.75rem" }}>Get In Touch</Badge>
-              <h2 style={{ fontSize: "clamp(1.875rem, 3vw, 2.25rem)", fontWeight: "bold", letterSpacing: "-0.025em", marginBottom: "1rem" }}>Let's Work Together</h2>
+              <Badge style={{ 
+                marginBottom: "0.75rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                color: "white" 
+              }}>Get In Touch</Badge>
+              <h2 style={{ 
+                fontSize: "clamp(1.875rem, 3vw, 2.25rem)", 
+                fontWeight: "bold", 
+                letterSpacing: "-0.025em", 
+                marginBottom: "1rem",
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899)",
+                backgroundSize: "200% auto",
+                animation: "gradient-x 3s ease-in-out infinite",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>Let's Work Together</h2>
               <p style={{ fontSize: "1.125rem", color: "var(--muted-foreground)" }}>
                 I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, feel free to reach out!
               </p>
@@ -698,7 +1089,22 @@ const Index = () => {
             
             <div style={{ maxWidth: "28rem", margin: "0 auto" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-                <Card>
+                <Card className="shine-effect" style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)",
+                  transition: "all 0.3s ease"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                  e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(59, 130, 246, 0.1)";
+                  e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "";
+                  e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.1)";
+                }}>
                   <CardContent className="p-0">
                     <a 
                       href="mailto:your-email@example.com" 
@@ -712,11 +1118,12 @@ const Index = () => {
                       }}
                     >
                       <div style={{ 
-                        background: "rgba(var(--primary), 0.1)", 
+                        background: "linear-gradient(to right, #3b82f6, #8b5cf6)", 
                         padding: "0.75rem", 
-                        borderRadius: "9999px" 
+                        borderRadius: "9999px",
+                        boxShadow: "0 10px 15px -3px rgba(59, 130, 246, 0.2)"
                       }}>
-                        <Mail className="h-6 w-6 text-primary" />
+                        <Mail className="h-6 w-6 text-white" />
                       </div>
                       <div>
                         <h3 style={{ fontWeight: 600 }}>Email</h3>
@@ -726,7 +1133,22 @@ const Index = () => {
                   </CardContent>
                 </Card>
                 
-                <Card>
+                <Card className="shine-effect" style={{ 
+                  border: "1px solid rgba(59, 130, 246, 0.1)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  backdropFilter: "blur(8px)",
+                  transition: "all 0.3s ease"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                  e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(59, 130, 246, 0.1)";
+                  e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "";
+                  e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.1)";
+                }}>
                   <CardContent className="p-0">
                     <a 
                       href="https://linkedin.com/in/yourprofile" 
@@ -742,11 +1164,12 @@ const Index = () => {
                       }}
                     >
                       <div style={{ 
-                        background: "rgba(59, 130, 246, 0.1)", 
+                        background: "linear-gradient(to right, #8b5cf6, #ec4899)", 
                         padding: "0.75rem", 
-                        borderRadius: "9999px" 
+                        borderRadius: "9999px",
+                        boxShadow: "0 10px 15px -3px rgba(139, 92, 246, 0.2)"
                       }}>
-                        <Linkedin className="h-6 w-6 text-blue-500" />
+                        <Linkedin className="h-6 w-6 text-white" />
                       </div>
                       <div>
                         <h3 style={{ fontWeight: 600 }}>LinkedIn</h3>
@@ -758,7 +1181,19 @@ const Index = () => {
               </div>
               
               <div style={{ textAlign: "center", marginTop: "3rem" }}>
-                <Button size="lg">
+                <Button size="lg" className="shine-effect" style={{ 
+                  background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                  transition: "all 0.3s ease",
+                  transform: "translateY(0)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0 10px 25px -5px rgba(59, 130, 246, 0.5)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "";
+                }}>
                   <Mail className="h-4 w-4 mr-2" />
                   Send me an email
                 </Button>
@@ -767,7 +1202,12 @@ const Index = () => {
           </div>
         </section>
 
-        <footer style={{ padding: "2rem 0", borderTop: "1px solid var(--border)" }}>
+        <footer style={{ 
+          padding: "2rem 0", 
+          borderTop: "1px solid var(--border)",
+          background: "rgba(255, 255, 255, 0.8)",
+          backdropFilter: "blur(8px)"
+        }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
               <div style={{ marginBottom: "1rem" }}>
@@ -777,17 +1217,50 @@ const Index = () => {
               </div>
               
               <div style={{ display: "flex", gap: "1rem" }}>
-                <Button variant="ghost" size="icon" asChild>
+                <Button variant="ghost" size="icon" asChild style={{ 
+                  transition: "all 0.3s ease",
+                  transform: "translateY(0) rotate(0deg)"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px) rotate(8deg)";
+                  e.currentTarget.style.color = "#3b82f6";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
+                  e.currentTarget.style.color = "";
+                }}>
                   <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <Github className="h-5 w-5" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild>
+                <Button variant="ghost" size="icon" asChild style={{ 
+                  transition: "all 0.3s ease",
+                  transform: "translateY(0) rotate(0deg)"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px) rotate(-8deg)";
+                  e.currentTarget.style.color = "#8b5cf6";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
+                  e.currentTarget.style.color = "";
+                }}>
                   <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild>
+                <Button variant="ghost" size="icon" asChild style={{ 
+                  transition: "all 0.3s ease",
+                  transform: "translateY(0) rotate(0deg)"
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px) rotate(8deg)";
+                  e.currentTarget.style.color = "#ec4899";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
+                  e.currentTarget.style.color = "";
+                }}>
                   <a href="mailto:your-email@example.com" aria-label="Email">
                     <Mail className="h-5 w-5" />
                   </a>
