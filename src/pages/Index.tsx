@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -87,7 +86,6 @@ const Index = () => {
   return (
     <TooltipProvider>
       <div style={{ minHeight: "100vh", background: "var(--background)", color: "var(--foreground)" }}>
-        {/* Background Elements */}
         <div style={{ position: "fixed", inset: 0, zIndex: -10, overflow: "hidden" }}>
           <div style={{ 
             position: "absolute", 
@@ -136,7 +134,6 @@ const Index = () => {
           }}></div>
         </div>
 
-        {/* Navigation */}
         <Sheet>
           <nav style={{ 
             position: "fixed", 
@@ -214,7 +211,10 @@ const Index = () => {
                     variant="ghost"
                     onClick={() => {
                       scrollToSection(section);
-                      document.querySelector('[data-radix-collection-item]')?.click();
+                      const element = document.querySelector('[data-radix-collection-item]');
+                      if (element) {
+                        (element as HTMLElement).click();
+                      }
                     }}
                     size="lg"
                     style={{ justifyContent: "flex-start" }}
@@ -227,7 +227,6 @@ const Index = () => {
           </SheetContent>
         </Sheet>
 
-        {/* Hero Section */}
         <section 
           id="home" 
           style={{
@@ -311,7 +310,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" style={{ padding: "6rem 0" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem" }}>
@@ -390,7 +388,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Expertise Section */}
         <section style={{ padding: "6rem 0", background: "var(--secondary)/0.3" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
@@ -477,7 +474,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" style={{ padding: "6rem 0" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
@@ -547,7 +543,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
         <section id="skills" style={{ padding: "6rem 0", background: "var(--secondary)/0.3" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
@@ -691,7 +686,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" style={{ padding: "6rem 0" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center", marginBottom: "4rem" }}>
@@ -773,7 +767,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Footer */}
         <footer style={{ padding: "2rem 0", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1rem" }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
