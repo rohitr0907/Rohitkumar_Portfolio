@@ -1,7 +1,6 @@
-
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
@@ -145,27 +144,6 @@ const Projects = () => {
             }} />
           </div>
         </Carousel>
-        
-        <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <Button variant="outline" style={{ 
-            borderColor: "rgba(59, 130, 246, 0.3)",
-            transition: "all 0.3s ease",
-            position: "relative",
-            overflow: "hidden"
-          }}
-          className="shine-effect"
-          onMouseOver={(e) => {
-            e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.5)";
-            e.currentTarget.style.background = "rgba(59, 130, 246, 0.05)";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)";
-            e.currentTarget.style.background = "";
-          }}>
-            View All Projects
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
       </div>
     </section>
   );
