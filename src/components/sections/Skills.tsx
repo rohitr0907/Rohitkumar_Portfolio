@@ -1,11 +1,10 @@
-
-import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const Skills = () => {
   const [skillProgress, setSkillProgress] = useState({
@@ -232,7 +231,7 @@ const Skills = () => {
             }}>
               <CardContent className="pt-6">
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "1rem" }}>
-                  {["Git", "Webpack", "Jest", "GitHub Actions", "VS Code", "Docker"].map((tool) => (
+                  {["Git", "Webpack", "GitHub Actions", "VS Code", "Docker"].map((tool) => (
                     <HoverCard key={tool}>
                       <HoverCardTrigger asChild>
                         <Button variant="outline" style={{ 

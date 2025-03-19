@@ -1,9 +1,8 @@
-
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
   scrollY: number;
@@ -42,7 +41,7 @@ const Navbar = ({ scrollY, activeSection, scrollToSection }: NavbarProps) => {
                 WebkitTextFillColor: "transparent"
               }}
             >
-              YourName
+              Personal Portfolio
             </Button>
           </div>
           

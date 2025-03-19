@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 
@@ -14,7 +13,7 @@ const Footer = () => {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
           <div style={{ marginBottom: "1rem" }}>
             <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>
-              &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+              &copy; {new Date().getFullYear()} Rohit Kumar. All rights reserved.
             </p>
           </div>
           
@@ -31,7 +30,7 @@ const Footer = () => {
               e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
               e.currentTarget.style.color = "";
             }}>
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/rohitr0907" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
@@ -47,7 +46,7 @@ const Footer = () => {
               e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
               e.currentTarget.style.color = "";
             }}>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/rohitkumar0907/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
@@ -63,7 +62,7 @@ const Footer = () => {
               e.currentTarget.style.transform = "translateY(0) rotate(0deg)";
               e.currentTarget.style.color = "";
             }}>
-              <a href="mailto:your-email@example.com" aria-label="Email">
+              <a href="mailto:rohitkumar.rajamanickam@gmail.com" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
             </Button>

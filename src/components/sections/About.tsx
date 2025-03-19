@@ -1,8 +1,7 @@
-
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
-import { Github, Linkedin, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Download, Github, Linkedin } from "lucide-react";
 
 const About = () => {
   return (
@@ -93,7 +92,7 @@ const About = () => {
                       e.currentTarget.style.background = "";
                     }}
                   >
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <a href="https://github.com/rohitr0907" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-5 w-5" />
                     </a>
                   </Button>
@@ -118,7 +117,7 @@ const About = () => {
                       e.currentTarget.style.background = "";
                     }}
                   >
-                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/rohitkumar0907/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-5 w-5" />
                     </a>
                   </Button>

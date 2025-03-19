@@ -1,8 +1,7 @@
-
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -50,7 +49,7 @@ const Contact = () => {
             }}>
               <CardContent className="p-0">
                 <a 
-                  href="mailto:your-email@example.com" 
+                  href="mailto:rohitkumar.rajamanickam@gmail.com" 
                   style={{ 
                     padding: "1.5rem", 
                     display: "flex", 
@@ -70,7 +69,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 style={{ fontWeight: 600 }}>Email</h3>
-                    <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>your-email@example.com</p>
+                    <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>rohitkumar.rajamanickam@gmail.com</p>
                   </div>
                 </a>
               </CardContent>
@@ -94,7 +93,7 @@ const Contact = () => {
             }}>
               <CardContent className="p-0">
                 <a 
-                  href="https://linkedin.com/in/yourprofile" 
+                  href="https://www.linkedin.com/in/rohitkumar0907/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   style={{ 
@@ -116,7 +115,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 style={{ fontWeight: 600 }}>LinkedIn</h3>
-                    <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>linkedin.com/in/yourprofile</p>
+                    <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>linkedin.com/in/rohitkumar0907/</p>
                   </div>
                 </a>
               </CardContent>

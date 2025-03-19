@@ -1,7 +1,6 @@
-
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 interface HeroProps {
   scrollY: number;
@@ -33,7 +32,7 @@ const Hero = ({ scrollY, scrollToSection }: HeroProps) => {
               boxShadow: "0 0 10px rgba(59, 130, 246, 0.2)" 
             }}>Frontend Developer</Badge>
             <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: "bold", letterSpacing: "-0.05em", lineHeight: 1.1 }}>
-              <span style={{ display: "block" }}>Hi, I'm Your Name</span>
+              <span style={{ display: "block" }}>Hi, I'm Rohit Kumar</span>
               <span style={{ 
                 display: "block", 
                 marginTop: "0.25rem", 
